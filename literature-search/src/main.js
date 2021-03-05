@@ -33,6 +33,7 @@ Vue.filter('day', function (value, formatString) {
 
 router.beforeEach((to,from,next) => {
   NProgress.start();
+  next();
 });
 
 router.afterEach(() => {
