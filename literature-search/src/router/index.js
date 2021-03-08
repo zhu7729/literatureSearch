@@ -18,7 +18,48 @@ const routes = [
         component: () => import('../views/example/example'),
         meta: {title: '例子'},
       },
-
+      {
+        path: '/home',
+        name: 'home',
+        component: () => import('../views/home/home'),
+        meta: {title: '首页'},
+      },
+      {
+        path: '/teachingTeam',
+        name: 'teachingTeam',
+        component: () => import('../views/home/teachingTeam'),
+        meta: {title: '教学队伍'},
+      },
+      {
+        path: '/teachingVideo',
+        name: 'teachingVideo',
+        component: () => import('../views/home/teachingVideo'),
+        meta: {title: '教学视频'},
+      },
+      {
+        path: '/courseEvaluation',
+        name: 'courseEvaluation',
+        component: () => import('../views/home/courseEvaluation'),
+        meta: {title: '课程评价'},
+      },
+      {
+        path: '/courseContent',
+        name: 'courseContent',
+        component: () => import('../views/home/courseContent'),
+        meta: {title: '课程内容'},
+      },
+      {
+        path: '/resources',
+        name: 'resources',
+        component: () => import('../views/home/resources'),
+        meta: {title: '参考资料'},
+      },
+      {
+        path: '/teachingCourse',
+        name: 'teachingCourse',
+        component: () => import('../views/home/teachingCourse'),
+        meta: {title: '教学课件'},
+      },
     ]
   }
 ];
