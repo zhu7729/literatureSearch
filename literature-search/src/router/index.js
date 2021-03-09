@@ -19,6 +19,13 @@ const routes = [
         meta: {title: '例子'},
       },
       {
+        path: '/',
+        redirect: '/home',
+        name: 'home',
+        component: () => import('../views/home/home'),
+        meta: {title: '首页'},
+      },
+      {
         path: '/home',
         name: 'home',
         component: () => import('../views/home/home'),

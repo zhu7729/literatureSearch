@@ -1,14 +1,14 @@
 <template>
-   <div>
+   <div class="content">
        <Menu></Menu>
-       <el-container>
-           <el-header></el-header>
+       <el-container class="main">
+
            <el-main>
 <!--               <keep-alive>-->
                <router-view></router-view>
 <!--               </keep-alive>-->
            </el-main>
-           <el-footer></el-footer>
+
        </el-container>
    </div>
 </template>
@@ -32,6 +32,12 @@
     }
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+    .content {
+        min-height: 100vh;
+        .main {
+            width: 1200px;
+            margin: 0 auto;
+        }
+    }
 </style>
