@@ -23,9 +23,14 @@
         name: "Menu",
         data() {
             return {
-                activeIndex: '/home',
+
             };
         },
+        computed: {
+            activeIndex() {
+                return `${this.$route.fullPath}`
+            },
+        }
     }
 </script>
 
