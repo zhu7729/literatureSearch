@@ -35,6 +35,7 @@
 <style lang="scss" scoped>
     .content {
         min-height: 100vh;
+        font-size: 15px;
         .main {
             width: 1200px;
             margin: 0 auto;

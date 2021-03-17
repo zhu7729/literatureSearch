@@ -4,7 +4,7 @@
 
 <script>
     export default {
-        name: "courseEvaluation"
+        name: "studentTask"
     }
 </script>
 

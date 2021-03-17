@@ -44,10 +44,10 @@ const routes = [
         meta: {title: '教学视频'},
       },
       {
-        path: '/courseEvaluation',
-        name: 'courseEvaluation',
-        component: () => import('../views/home/courseEvaluation'),
-        meta: {title: '课程评价'},
+        path: '/studentTask',
+        name: 'studentTask',
+        component: () => import('../views/home/studentTask'),
+        meta: {title: '学生作业'},
       },
       {
         path: '/courseContent',
