@@ -7,6 +7,8 @@ import store from "./store";
 import axios from 'axios';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+import VueVideoPlayer from 'vue-video-player'
+import 'video.js/dist/video-js.css'
 
 axios.defaults.baseURL = process.env.VUE_APP_BASE_API;
 axios.defaults.withCredentials = true;
@@ -14,6 +16,8 @@ Vue.prototype.$axios = axios;
 
 Vue.use(ElementUI, { size: 'default', zIndex: 3000 });
 Vue.config.productionTip = false;
+
+Vue.use(VueVideoPlayer);
 
 import * as filters from './filters/index';
 Object.keys(filters).forEach(key => {
