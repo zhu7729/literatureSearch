@@ -36,6 +36,7 @@
     .content {
         min-height: 100vh;
         font-size: 15px;
+        color: #333333;
         .main {
             width: 1200px;
             margin: 0 auto;
