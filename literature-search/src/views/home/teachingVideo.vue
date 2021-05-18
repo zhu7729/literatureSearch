@@ -3,8 +3,15 @@
         <div class="video_style">
             <common-video :url="videoUrl" :img='videoImg' ref='commonVideo'></common-video>
         </div>
+        <div class="upload">上传视频</div>
         <el-card class="item" v-for="item in list" :key="item.id">
-            <img src="../.././assets/images/video.jpg">
+            <div class="img_wrapper">
+                <img src="../.././assets/images/video.jpg">
+                <div class="change_delete">
+                    <div>修改</div>
+                    <div>删除</div>
+                </div>
+            </div>
             <div class="word">
                 <span>{{item.title}}</span>
                 <div>
@@ -94,6 +101,36 @@
                 width: 178px;
                 height: 178px;
             }
+            .img_wrapper {
+                position: relative;
+                .change_delete {
+                    display: none;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 9;
+                    background-color: rgba(0,0,0,0.5);
+                    color:#409eff;
+                    width: 178px;
+                    height: 178px;
+                    font-size: 16px;
+                    line-height: 30px;
+                    overflow: hidden;
+                    box-sizing: border-box;
+                    padding: 70px 30px;
+                    >div {
+                        float: left;
+                        width: 59px;
+                        text-align: center;
+                        cursor: pointer;
+                    }
+                }
+                &:hover {
+                    .change_delete {
+                        display: block;
+                    }
+                }
+            }
         }
         .item:nth-of-type(5n) {
             margin-right: 0;
@@ -132,6 +169,15 @@
             overflow: hidden;
             margin: 0 auto;
             padding-top: 20px;
+        }
+        .upload {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            margin-left: 450px;
+            font-size: 16px;
+            color: #409eff;
+            cursor: pointer;
         }
     }
 </style>
