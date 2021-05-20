@@ -24,7 +24,7 @@
         <el-dialog title="上传课件" :visible.sync="dialogFormVisible">
             <el-form>
                 <el-form-item label="课件名称" :label-width="formLabelWidth">
-                    <el-input v-model="videoTitle" type="text" placeholder="请输入课件名称" clearable></el-input>
+                    <el-input v-model="courseTitle" type="text" placeholder="请输入课件名称" clearable></el-input>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -92,7 +92,7 @@
                     }
                 ],
                 dialogFormVisible:false,
-                videoTitle:'',
+                courseTitle:'',
                 formLabelWidth:'80px'
             };
         },
@@ -101,9 +101,9 @@
                 this.dialogFormVisible = true;
             },
             save(item) {
-                //进行参数赋值this.videoTitle为课件名称 item.file为文件 通过浏览器的console可以看到
+                //进行参数赋值this.courseTitle为课件名称 item.file为文件 通过浏览器的console可以看到
                 console.log(item.file);
-                console.log(this.videoTitle);
+                console.log(this.courseTitle);
 
                 //接口请求成功之后 刷新列表数据
 
