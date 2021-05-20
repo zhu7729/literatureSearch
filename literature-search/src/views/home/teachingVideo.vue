@@ -3,7 +3,7 @@
         <div class="video_style">
             <common-video :url="videoUrl" :img='videoImg' ref='commonVideo'></common-video>
         </div>
-        <div class="upload">上传视频</div>
+        <div class="upload" @click="openDialog">上传视频</div>
         <el-card class="item" v-for="item in list" :key="item.id">
             <div class="img_wrapper">
                 <img src="../.././assets/images/video.jpg">
@@ -24,6 +24,18 @@
                 </div>
             </div>
         </el-card>
+        <el-dialog title="上传视频" :visible.sync="dialogFormVisible">
+            <el-form>
+                <el-form-item label="视频名称" :label-width="formLabelWidth">
+                    <el-input v-model="videoTitle" type="text" placeholder="请输入视频名称" clearable></el-input>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-upload action="" :auto-upload="true" :http-request="save" :show-file-list="false">
+                    <el-button slot="trigger" type="primary">确 定</el-button>
+                </el-upload>
+            </div>
+        </el-dialog>
     </div>
 </template>
 
@@ -67,7 +79,10 @@
                     }
                 ],
                 videoUrl:[],
-                videoImg:''
+                videoImg:'',
+                dialogFormVisible:false,
+                videoTitle:'',
+                formLabelWidth:'80px'
             };
         },
         created () {
@@ -83,6 +98,19 @@
                 arr.push(url);
                 this.videoUrl = arr;
                 this.videoImg = src;
+            },
+            openDialog() {
+                this.dialogFormVisible = true;
+            },
+            save(item) {
+                //进行参数赋值this.videoTitle为视频名称 item.file为文件 通过浏览器的console可以看到
+                console.log(item.file);
+                console.log(this.videoTitle);
+
+                //接口请求成功之后 刷新列表数据
+
+                //接口请求成功之后 关闭弹窗
+                this.dialogFormVisible = false;
             }
         }
     }
@@ -178,6 +206,11 @@
             font-size: 16px;
             color: #409eff;
             cursor: pointer;
+        }
+        .dialog-footer {
+            .el-button {
+                padding: 12px 20px;
+            }
         }
     }
 </style>
