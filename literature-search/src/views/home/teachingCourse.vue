@@ -20,7 +20,19 @@
                 </div>
             </div>
         </el-card>
-        <div class="upload">上传课件</div>
+        <div class="upload" @click="openDialog">上传课件</div>
+        <el-dialog title="上传课件" :visible.sync="dialogFormVisible">
+            <el-form>
+                <el-form-item label="课件名称" :label-width="formLabelWidth">
+                    <el-input v-model="videoTitle" type="text" placeholder="请输入课件名称" clearable></el-input>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-upload action="" :auto-upload="true" :http-request="save" :show-file-list="false">
+                    <el-button slot="trigger" type="primary">确 定</el-button>
+                </el-upload>
+            </div>
+        </el-dialog>
     </div>
 </template>
 
@@ -78,9 +90,27 @@
                         count:'100',
                         url:'http://video.ch9.ms/build/2011/slides/TOOL-532T_Sutter.pptx'
                     }
-                ]
+                ],
+                dialogFormVisible:false,
+                videoTitle:'',
+                formLabelWidth:'80px'
             };
         },
+        methods: {
+            openDialog() {
+                this.dialogFormVisible = true;
+            },
+            save(item) {
+                //进行参数赋值this.videoTitle为课件名称 item.file为文件 通过浏览器的console可以看到
+                console.log(item.file);
+                console.log(this.videoTitle);
+
+                //接口请求成功之后 刷新列表数据
+
+                //接口请求成功之后 关闭弹窗
+                this.dialogFormVisible = false;
+            }
+        }
     }
 </script>
 
@@ -167,6 +197,11 @@
             font-size: 16px;
             color: #409eff;
             cursor: pointer;
+        }
+        .dialog-footer {
+            .el-button {
+                padding: 12px 20px;
+            }
         }
     }
 </style>
