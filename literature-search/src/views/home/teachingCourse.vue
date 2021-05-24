@@ -104,6 +104,11 @@
                 //进行参数赋值this.courseTitle为课件名称 item.file为文件 通过浏览器的console可以看到
                 console.log(item.file);
                 console.log(this.courseTitle);
+                // FormData对象例子
+                // const form = new FormData();
+                // form.append('file', item.file);
+                // form.append('title', this.courseTitle);
+                // console.log(form);
 
                 //接口请求成功之后 刷新列表数据
 
