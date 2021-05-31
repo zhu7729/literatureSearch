@@ -1,5 +1,9 @@
 <template>
     <div>
+        <div class="login_style">
+            <div @click="login">登录</div>
+            <div @click="logout">退出</div>
+        </div>
         <div class="header">
             <p>文献检索课程</p>
         </div>
@@ -66,14 +70,16 @@
             </div>
         </div>
         <Footer></Footer>
+        <common-login v-if="DialogVisible" :visible.sync="DialogVisible"></common-login>
     </div>
 </template>
 
 <script>
+    import commonLogin from '@/components/commonLogin'
     import Footer from '@/components/Footer'
     export default {
         name: "home",
-        components: { Footer },
+        components: { Footer,commonLogin },
         data() {
             return {
                 listVideo:[
@@ -225,15 +231,35 @@
                         value:'教学条件'
                     }
                 ],
+                DialogVisible:false
             };
         },
         methods: {
+            login() {
+                this.DialogVisible = true;
+            },
+            logout() {
 
+            }
         }
     }
 </script>
 
 <style scoped lang="scss">
+    .login_style {
+        position: absolute;
+        top: 21px;
+        right: 20px;
+        z-index: 2;
+        overflow: hidden;
+        div {
+            color: white;
+            cursor: pointer;
+            float: left;
+            font-size: 15px;
+            margin-left: 15px;
+        }
+    }
     .header {
         background-image: url("../.././assets/images/bgc.jpg");
         background-repeat: no-repeat;
